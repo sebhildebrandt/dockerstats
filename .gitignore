@@ -1,0 +1,104 @@
+# --------------------
+# OSX Files
+# --------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# --------------------
+# Linux
+# --------------------
+*~
+.directory
+.Trash-*
+pids
+*.pid
+*.seed
+
+# --------------------
+# Windows
+# --------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --------------------
+# Eclipse or Nodeclipse "Enide Studio" Files
+# --------------------
+# recommended to add to Git SCM
+# or generate with `nodeclipse -p` command
+.project
+.settings/
+.*.md.html
+
+# --------------------
+# IntelliJ Files
+# --------------------
+*.ipr
+*.iws
+.idea/
+
+# --------------------
+# Netbeans Files
+# --------------------
+nbproject/private/
+build/
+nbbuild/
+client/dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# --------------------
+# Node Files / NPM
+# --------------------
+.nodemonignore
+npm-debug.log
+node_modules/
+npm*
+logs
+*.log
+*.gz
+
+# --------------------
+# SASS Files
+# --------------------
+.sass-cache/
+
+# --------------------
+# Bower Files
+# --------------------
+.bower-*/
+bower_components/
+
+# --------------------
+# vim Files
+# --------------------
+*.swp
+
+# --------------------
+# Coverage directory used by tools like istanbul, jscoverage/JSCover
+# --------------------
+lib-cov
+coverage
+
+# --------------------
+# Grunt intermediate storage
+# --------------------
+.grunt
+
+# --------------------
+# Project specific files
+# --------------------
+
+# --------------------
+# Other
+# --------------------
+.lock-wscript
+.notes.txt
+*_conflict-*

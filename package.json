@@ -1,6 +1,6 @@
 {
   "name": "dockerstats",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple docker statistics libary",
   "license": "MIT",
   "author": "Sebastian Hildebrandt <hildebrandt@plus-innovations.com> (http://www.plus-innovations.com)",

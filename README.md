@@ -22,7 +22,7 @@ $ npm install dockerstats --save
 
 All functions are implemented as asynchronous functions. Here a small example how to use them:
 
-```
+```js
 var dockerstats = require('dockerstats');
 
 // callback style
@@ -36,6 +36,16 @@ dockerstats.dockerContainers()
 	.then(data => console.log(data))
 	.catch(error => console.error(error));
 
+// full async / await example (node >= 7.6)
+async function dockerContainers() {
+  try {
+    const data = await dockerstats.dockerContainers();
+    console.log(data)
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 ```
 
 ## Core concept
@@ -46,8 +56,7 @@ I was only able to test it on several Debian, Raspbian, Ubuntu distributions as 
 
 If you have comments, suggestions & reports, please feel free to contact me!
 
-I also created a full blown system information library (including all docker stats) called [systeminformation][systeminformation-github-url] , also available via [github][systeminformation-github-url] and [npm][systeminformation-npm-url].
-
+I also created a full blown system information library (including all docker stats) called [systeminformation][systeminformation-github-url], also available via [github][systeminformation-github-url] and [npm][systeminformation-npm-url].
 
 ## Reference
 
@@ -103,7 +112,7 @@ Remember: all functions are implemented as asynchronous functions! There are now
 
 **Callback Style**
 
-```
+```js
 // assuming you have a container with ID 'ae8a76'
 
 var si = require('dockerstats');
@@ -124,7 +133,7 @@ dockerstats.dockerContainerStats('ae8a76', function(data) {
 
 When omitting callback parameter (cb), then you can use all function in a promise oriented way. All functions are returning a promise, that you can consume:
 
-```
+```js
 // assuming you have a container with ID 'ae8a76'
 
 dockerstats.dockerContainerStats('ae8a76')
@@ -139,6 +148,13 @@ dockerstats.dockerContainerStats('ae8a76')
 	.catch(error => console.error(error));
 
 ```
+
+## Version history
+
+| Version        | Date           | Comment  |
+| -------------- | -------------- | -------- |
+| 1.1.0          | 2017-11-06     | added windows support, dependency version bump |
+| 1.0.0          | 2016-11-04     | Initial release |
 
 ## Comments
 
@@ -171,7 +187,7 @@ All other trademarks are the property of their respective owners.
 
 >The [`MIT`][license-url] License (MIT)
 >
->Copyright &copy; 2016 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
+>Copyright &copy; 2017 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal

@@ -8,5 +8,5 @@ We are always looking for quality contributions and will be happy to accept your
   
 * Please assure that you are submitting quality code, specifically make sure that:
   * your commits should not be braking changes - if possible. 
-  * your PR are well testet - if possible on multiple platforms / machines
+  * your PR are well testet
   * if your commit needs a major version bump (breaking change), please leave a clear message in your comments 

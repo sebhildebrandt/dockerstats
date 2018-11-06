@@ -6,6 +6,9 @@ Simple [Docker][docker-url] stats library for [node.js][nodejs-url]
   [![NPM Downloads][downloads-image]][downloads-url]
   [![Git Issues][issues-img]][issues-url]
   [![deps status][daviddm-img]][daviddm-url]
+  [![Code Quality: Javascript][lgtm-badge]][lgtm-badge-url]
+  [![Total alerts][lgtm-alerts]][lgtm-alerts-url]
+  [![Caretaker][caretaker-image]][caretaker-url]
   [![MIT license][license-img]][license-url]
 
 ## Quick Start
@@ -153,6 +156,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.2.0          | 2018-11-06     | bug-fixing, stabilization, added error handling |
 | 1.1.0          | 2017-11-06     | added windows support, dependency version bump |
 | 1.0.0          | 2016-11-04     | Initial release |
 
@@ -187,7 +191,7 @@ All other trademarks are the property of their respective owners.
 
 >The [`MIT`][license-url] License (MIT)
 >
->Copyright &copy; 2017 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
+>Copyright &copy; 2018 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal
@@ -215,10 +219,17 @@ All other trademarks are the property of their respective owners.
 [downloads-image]: https://img.shields.io/npm/dm/dockerstats.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/dockerstats
 
+[lgtm-badge]: https://img.shields.io/lgtm/grade/javascript/g/sebhildebrandt/dockerstats.svg?style=flat-square
+[lgtm-badge-url]: https://lgtm.com/projects/g/sebhildebrandt/dockerstats/context:javascript
+[lgtm-alerts]: https://img.shields.io/lgtm/alerts/g/sebhildebrandt/dockerstats.svg?style=flat-square
+[lgtm-alerts-url]: https://lgtm.com/projects/g/sebhildebrandt/dockerstats/alerts
+
 [license-url]: https://github.com/sebhildebrandt/dockerstats/blob/master/LICENSE
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [npmjs-license]: https://img.shields.io/npm/l/dockerstats.svg?style=flat-square
 [changelog-url]: https://github.com/sebhildebrandt/dockerstats/blob/master/CHANGELOG.md
+[caretaker-url]: https://github.com/sebhildebrandt
+[caretaker-image]: https://img.shields.io/badge/caretaker-sebhildebrandt-blue.svg?style=flat-square
 
 [nodejs-url]: https://nodejs.org/en/
 [docker-url]: https://www.docker.com/
@@ -228,6 +239,8 @@ All other trademarks are the property of their respective owners.
 
 [issues-img]: https://img.shields.io/github/issues/sebhildebrandt/dockerstats.svg?style=flat-square
 [issues-url]: https://github.com/sebhildebrandt/dockerstats/issues
+[closed-issues-img]: https://img.shields.io/github/issues-closed-raw/sebhildebrandt/dockerstats.svg?style=flat-square
+[closed-issues-url]: https://github.com/sebhildebrandt/dockerstats/issues?q=is%3Aissue+is%3Aclosed
 
 [systeminformation-npm-url]: https://npmjs.org/package/systeminformation
 [systeminformation-github-url]: https://github.com/sebhildebrandt/systeminformation

@@ -156,6 +156,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.2.2          | 2018-11-18     | bug-fixing - parsing JSON |
 | 1.2.1          | 2018-11-18     | bug-fixing - parsing JSON |
 | 1.2.0          | 2018-11-06     | bug-fixing, stabilization, added error handling |
 | 1.1.0          | 2017-11-06     | added windows support, dependency version bump |

@@ -13,7 +13,7 @@ Simple [Docker][docker-url] stats library for [node.js][nodejs-url]
 
 ## Quick Start
 
-Collection of a few functions to retrieve detailed docker statistics.  
+Collection of a few functions to retrieve detailed docker statistics.
 
 ### Installation
 
@@ -132,7 +132,7 @@ dockerstats.dockerContainerStats('ae8a76', function(data) {
 
 ### Promises
 
-**Promises Style** is new in version 3.0. 
+**Promises Style** is new in version 3.0.
 
 When omitting callback parameter (cb), then you can use all function in a promise oriented way. All functions are returning a promise, that you can consume:
 
@@ -156,7 +156,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
-| 1.2.3          | 2018-11-18     | bug-fixing - CPU percent calculation |
+| 1.2.3          | 2018-11-18     | bug-fixing - CPU percent calculation (linux, win) |
 | 1.2.2          | 2018-11-18     | bug-fixing - parsing JSON |
 | 1.2.1          | 2018-11-18     | bug-fixing - parsing JSON |
 | 1.2.0          | 2018-11-06     | bug-fixing, stabilization, added error handling |

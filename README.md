@@ -156,6 +156,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.2.5          | 2018-11-18     | code cleanup |
 | 1.2.4          | 2018-11-18     | bug-fixing - CPU percent calculation (win) |
 | 1.2.3          | 2018-11-18     | bug-fixing - CPU percent calculation (linux, win) |
 | 1.2.2          | 2018-11-18     | bug-fixing - parsing JSON |

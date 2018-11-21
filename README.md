@@ -13,7 +13,13 @@ Simple [Docker][docker-url] stats library for [node.js][nodejs-url]
 
 ## Quick Start
 
-Collection of a few functions to retrieve detailed docker statistics.
+Collection of a few functions to retrieve detailed docker statistics. With this package you easily can retrieve
+
+- list of active/all docker containers
+- statistics for a specific container (mem, cpu, network and blockIO stats)
+- information of all processes of a specific active docker container (pids, state, cpu-time, user...)
+
+Super simple to use with callback functions or promise style.
 
 ### Installation
 
@@ -55,7 +61,7 @@ async function dockerContainers() {
 
 [Docker][docker-url] comes with a API to control Docker and retrieve detailes information. So I came up to write this
 little library to collect some docker statistics. This library is still work in progress. I am sure, there is for sure room for improvement.
-I was only able to test it on several Debian, Raspbian, Ubuntu distributions as well as OS X (Mavericks, Yosemite, El Captain).
+Tested on several Debian, Raspbian, Ubuntu distributions, OS X (Mavericks, Yosemite, El Captain, Sierra, High Sierra, Mojave).
 
 If you have comments, suggestions & reports, please feel free to contact me!
 
@@ -156,6 +162,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.2.6          | 2018-11-21     | updated docs |
 | 1.2.5          | 2018-11-18     | code cleanup |
 | 1.2.4          | 2018-11-18     | bug-fixing - CPU percent calculation (win) |
 | 1.2.3          | 2018-11-18     | bug-fixing - CPU percent calculation (linux, win) |

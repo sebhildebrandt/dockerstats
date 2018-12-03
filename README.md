@@ -32,7 +32,7 @@ $ npm install dockerstats --save
 All functions are implemented as asynchronous functions. Here a small example how to use them:
 
 ```js
-var dockerstats = require('dockerstats');
+const dockerstats = require('dockerstats');
 
 // callback style
 dockerstats.dockerContainers(function(data) {
@@ -73,7 +73,7 @@ I also created a full blown system information library (including all docker sta
 
 | function        | Comments |
 | -------------- | ------- |
-| si.dockerContainers(all, cb) | returns array of active/all docker containers |
+| ds.dockerContainers(all, cb) | returns array of active/all docker containers |
 | - [0].id | ID of container |
 | - [0].name | name of container |
 | - [0].image | name of image |
@@ -83,7 +83,7 @@ I also created a full blown system information library (including all docker sta
 | - [0].state | created, running, exited |
 | - [0].ports | array of ports |
 | - [0].mounts | array of mounts |
-| si.dockerContainerStats(id, cb) | statistics for a specific container |
+| ds.dockerContainerStats(id, cb) | statistics for a specific container |
 | - id | Container ID |
 | - mem_usage | memory usage in bytes |
 | - mem_limit | memory limit (max mem) in bytes |
@@ -98,7 +98,7 @@ I also created a full blown system information library (including all docker sta
 | - percpu_stats | detailed per cpu stats |
 | - memory_stats | detailed memory stats |
 | - networks | detailed network stats per interface |
-| si.dockerContainerProcesses(id, cb) | array of processes inside a container |
+| ds.dockerContainerProcesses(id, cb) | array of processes inside a container |
 | - [0].pid_host | process ID (host) |
 | - [0].ppid | parent process ID |
 | - [0].pgid | process group ID |
@@ -124,7 +124,7 @@ Remember: all functions are implemented as asynchronous functions! There are now
 ```js
 // assuming you have a container with ID 'ae8a76'
 
-var si = require('dockerstats');
+var dockerstats = require('dockerstats');
 
 dockerstats.dockerContainerStats('ae8a76', function(data) {
 	console.log('Docker Container Stats:');
@@ -162,6 +162,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.2.7          | 2018-12-03     | updated docs |
 | 1.2.6          | 2018-11-21     | updated docs |
 | 1.2.5          | 2018-11-18     | code cleanup |
 | 1.2.4          | 2018-11-18     | bug-fixing - CPU percent calculation (win) |

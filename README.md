@@ -162,6 +162,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.2.8          | 2018-12-03     | updated package.json (files) |
 | 1.2.7          | 2018-12-03     | updated docs |
 | 1.2.6          | 2018-11-21     | updated docs |
 | 1.2.5          | 2018-11-18     | code cleanup |

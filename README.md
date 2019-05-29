@@ -190,7 +190,7 @@ dockerstats.dockerContainerStats('ae8a76', function(data) {
 
 ### Promises
 
-**Promises Style** is new in version 3.0.
+**Promises Style**
 
 When omitting callback parameter (cb), then you can use all function in a promise oriented way. All functions are returning a promise, that you can consume:
 

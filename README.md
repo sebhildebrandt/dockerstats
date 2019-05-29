@@ -71,49 +71,101 @@ I also created a full blown system information library (including all docker sta
 
 ### Function Reference and OS Support
 
-| function        | Comments |
-| -------------- | ------- |
-| ds.dockerContainers(all, cb) | returns array of active/all docker containers |
-| - [0].id | ID of container |
-| - [0].name | name of container |
-| - [0].image | name of image |
-| - [0].imageID | ID of image |
-| - [0].command | command |
-| - [0].created | creation time |
-| - [0].state | created, running, exited |
-| - [0].ports | array of ports |
-| - [0].mounts | array of mounts |
-| ds.dockerContainerStats(id, cb) | statistics for a specific container |
-| - id | Container ID |
-| - mem_usage | memory usage in bytes |
-| - mem_limit | memory limit (max mem) in bytes |
-| - mem_percent | memory usage in percent |
-| - cpu_percent | cpu usage in percent |
-| - pids | number of processes |
-| - netIO.rx | received bytes via network |
-| - netIO.wx | sent bytes via network |
-| - blockIO.r | bytes read from BlockIO |
-| - blockIO.w | bytes written to BlockIO |
-| - cpu_stats | detailed cpu stats |
-| - percpu_stats | detailed per cpu stats |
-| - memory_stats | detailed memory stats |
-| - networks | detailed network stats per interface |
-| ds.dockerContainerProcesses(id, cb) | array of processes inside a container |
-| - [0].pid_host | process ID (host) |
-| - [0].ppid | parent process ID |
-| - [0].pgid | process group ID |
-| - [0].user | effective user name |
-| - [0].ruser | real user name |
-| - [0].group | effective group name |
-| - [0].rgroup | real group name |
-| - [0].stat | process state |
-| - [0].time | accumulated CPU time |
-| - [0].elapsed | elapsed running time |
-| - [0].nice |  nice value |
-| - [0].rss | resident set size |
-| - [0].vsz | virtual size in Kbytes |
-| - [0].command | command and arguments |
-| si.dockerAll(cb) | list of all containers including their stats<br>and processes in one single array |
+| Function        | Result object | Comments |
+| --------------- | ------------- | -------- |
+| si.dockerInfo(cb) | {...} | returns general docker info |
+| | ID | Docker ID |
+| | Containers | number of containers |
+| | ContainersRunning | number of running containers |
+| | ContainersPaused | number of paused containers |
+| | ContainersStopped | number of stopped containers |
+| | Images | number of images |
+| | Driver | driver (e.g. 'devicemapper', 'overlay2') |
+| | MemoryLimit | has memory limit |
+| | SwapLimit | has swap limit |
+| | KernelMemory | has kernal memory |
+| | CpuCfsPeriod | has CpuCfsPeriod |
+| | CpuCfsQuota | has CpuCfsQuota |
+| | CPUShares | has CPUShares |
+| | CPUSet | has CPUShares |
+| | IPv4Forwarding | has IPv4Forwarding |
+| | BridgeNfIptables | has BridgeNfIptables |
+| | BridgeNfIp6tables | has BridgeNfIp6tables |
+| | Debug | Debug on |
+| | NFd | named data networking forwarding daemon |
+| | OomKillDisable | out-of-memory kill disabled |
+| | NGoroutines | number NGoroutines |
+| | SystemTime | docker SystemTime |
+| | LoggingDriver | logging driver e.g. 'json-file' |
+| | CgroupDriver | cgroup driver e.g. 'cgroupfs' |
+| | NEventsListener | number NEventsListeners |
+| | KernelVersion | docker kernel version |
+| | OperatingSystem | docker OS e.g. 'Docker for Mac' |
+| | OSType | OSType e.g. 'linux' |
+| | Architecture | architecture e.g. x86_64 |
+| | NCPU | number of CPUs |
+| | MemTotal | memory total |
+| | DockerRootDir | docker root directory |
+| | HttpProxy | http proxy |
+| | HttpsProxy | https proxy |
+| | NoProxy | NoProxy |
+| | Name | Name |
+| | Labels | array of labels |
+| | ExperimentalBuild | is experimental build |
+| | ServerVersion | server version |
+| | ClusterStore | cluster store |
+| | ClusterAdvertise | cluster advertise |
+| | DefaultRuntime | default runtime e.g. 'runc' |
+| | LiveRestoreEnabled | live store enabled |
+| | Isolation | isolation |
+| | InitBinary | init binary |
+| | ProductLicense | product license |
+| si.dockerContainers(all, cb) | [{...}] | returns array of active/all docker containers |
+| | [0].id | ID of container |
+| | [0].name | name of container |
+| | [0].image | name of image |
+| | [0].imageID | ID of image |
+| | [0].command | command |
+| | [0].created | creation time (unix) |
+| | [0].started | creation time (unix) |
+| | [0].finished | creation time (unix) |
+| | [0].createdAt | creation date time string |
+| | [0].startedAt | creation date time string |
+| | [0].finishedAt | creation date time string |
+| | [0].state | created, running, exited |
+| | [0].ports | array of ports |
+| | [0].mounts | array of mounts |
+| si.dockerContainerStats(ids, cb) | [{...}] | statistics for specific containers<br>container IDs: space or comma separated,<br>pass '*' for all containers|
+| | [0].id | Container ID |
+| | [0].mem_usage | memory usage in bytes |
+| | [0].mem_limit | memory limit (max mem) in bytes |
+| | [0].mem_percent | memory usage in percent |
+| | [0].cpu_percent | cpu usage in percent |
+| | [0].pids | number of processes |
+| | [0].netIO.rx | received bytes via network |
+| | [0].netIO.wx | sent bytes via network |
+| | [0].blockIO.r | bytes read from BlockIO |
+| | [0].blockIO.w | bytes written to BlockIO |
+| | [0].cpu_stats | detailed cpu stats |
+| | [0].percpu_stats | detailed per cpu stats |
+| | [0].memory_stats | detailed memory stats |
+| | [0].networks | detailed network stats per interface |
+| si.dockerContainerProcesses(id, cb) | [{...}] | array of processes inside a container |
+| | [0].pid_host | process ID (host) |
+| | [0].ppid | parent process ID |
+| | [0].pgid | process group ID |
+| | [0].user | effective user name |
+| | [0].ruser | real user name |
+| | [0].group | effective group name |
+| | [0].rgroup | real group name |
+| | [0].stat | process state |
+| | [0].time | accumulated CPU time |
+| | [0].elapsed | elapsed running time |
+| | [0].nice | nice value |
+| | [0].rss | resident set size |
+| | [0].vsz | virtual size in Kbytes |
+| | [0].command | command and arguments |
+| si.dockerAll(cb) | {...} | list of all containers including their stats<br>and processes in one single array |
 
 ### cb: Asynchronous Function Calls (callback)
 
@@ -162,6 +214,7 @@ dockerstats.dockerContainerStats('ae8a76')
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.3.0          | 2019-05-29     | added `dockerInfo()`, `dockerContainers()` added  added started, finished time, restartCount |
 | 1.2.8          | 2018-12-03     | updated package.json (files) |
 | 1.2.7          | 2018-12-03     | updated docs |
 | 1.2.6          | 2018-11-21     | updated docs |
@@ -205,7 +258,7 @@ All other trademarks are the property of their respective owners.
 
 >The [`MIT`][license-url] License (MIT)
 >
->Copyright &copy; 2018 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
+>Copyright &copy; 2019 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal

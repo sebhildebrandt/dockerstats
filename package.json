@@ -6,12 +6,14 @@
   "author": "Sebastian Hildebrandt <hildebrandt@plus-innovations.com> (http://www.plus-innovations.com)",
   "homepage": "https://github.com/sebhildebrandt/dockerstats",
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "docker",
-    "docker statistics"
+    "docker statistics",
+    "docker info"
   ],
   "files": [
     "lib/"

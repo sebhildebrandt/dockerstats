@@ -176,7 +176,7 @@ Remember: all functions are implemented as asynchronous functions! There are now
 ```js
 // assuming you have a container with ID 'ae8a76'
 
-var dockerstats = require('dockerstats');
+const dockerstats = require('dockerstats');
 
 dockerstats.dockerContainerStats('ae8a76', function(data) {
 	console.log('Docker Container Stats:');
@@ -197,6 +197,8 @@ When omitting callback parameter (cb), then you can use all function in a promis
 ```js
 // assuming you have a container with ID 'ae8a76'
 
+const dockerstats = require('dockerstats');
+
 dockerstats.dockerContainerStats('ae8a76')
   .then(data => {
   	console.log('Docker Container Stats:');
@@ -210,11 +212,39 @@ dockerstats.dockerContainerStats('ae8a76')
 
 ```
 
+### Async / Await
+
+**Using async / await** (available since node v7.6)
+
+Since node v7.6 you can also use the `async` / `await` pattern. The above example would then look like this:
+
+```js
+// assuming you have a container with ID 'ae8a76'
+
+const dockerstats = require('dockerstats');
+
+async function dockerContainerData() {
+    try {
+        const data = await dockerstats.dockerContainerStats('ae8a76');
+        console.log('Docker Container Stats:');
+        console.log('- ID: ' + data.id);
+        console.log('- Mem usage: ' + data.mem_usage);
+        console.log('- Mem limit: ' + data.mem_limit);
+        console.log('- Mem usage %: ' + data.mem_percent);
+        console.log('- CPU usage %: ' + data.cpu_percent);
+        console.log('...');
+    } catch (e) {
+        console.log(e)
+    }
+}
+```
+
 ## Version history
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
-| 1.3.1          | 2019-05-31     | `dockerInfo()` changed property naming style |
+| 1.4.1          | 2019-05-31     | `dockerInfo()` changed property naming style |
+| 1.4.0          | 2019-05-30     | added typescript definitions, updated docs |
 | 1.3.0          | 2019-05-29     | added `dockerInfo()`, `dockerContainers()` added  added started, finished time, restartCount |
 | 1.2.8          | 2018-12-03     | updated package.json (files) |
 | 1.2.7          | 2018-12-03     | updated docs |
@@ -249,10 +279,10 @@ Written by Sebastian Hildebrandt [sebhildebrandt](https://github.com/sebhildebra
 
 ## Copyright Information
 
-Linux is a registered trademark of Linus Torvalds, OS X is a registered trademark of Apple Inc.,
+Linux is a registered trademark of Linus Torvalds. macOS, OS X is a registered trademark of Apple Inc.,
 Windows is a registered trademark of Microsoft Corporation. Node.js is a trademark of Joyent Inc.,
-Intel is a trademark of Intel Corporation, Raspberry Pi is a trademark of the Raspberry Pi Foundation,
-Debian is a trademark of the Debian Project, Ubuntu is a trademark of Canonical Ltd., Docker is a trademark of Docker, Inc.
+Intel is a trademark of Intel Corporation. Raspberry Pi is a trademark of the Raspberry Pi Foundation.
+Debian is a trademark of the Debian Project. Ubuntu is a trademark of Canonical Ltd., Docker is a trademark of Docker, Inc.
 All other trademarks are the property of their respective owners.
 
 ## License [![MIT license][license-img]][license-url]

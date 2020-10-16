@@ -74,52 +74,52 @@ I also created a full blown system information library (including all docker sta
 | Function        | Result object | Comments |
 | --------------- | ------------- | -------- |
 | si.dockerInfo(cb) | {...} | returns general docker info |
-| | ID | Docker ID |
-| | Containers | number of containers |
-| | ContainersRunning | number of running containers |
-| | ContainersPaused | number of paused containers |
-| | ContainersStopped | number of stopped containers |
-| | Images | number of images |
-| | Driver | driver (e.g. 'devicemapper', 'overlay2') |
-| | MemoryLimit | has memory limit |
-| | SwapLimit | has swap limit |
-| | KernelMemory | has kernal memory |
-| | CpuCfsPeriod | has CpuCfsPeriod |
-| | CpuCfsQuota | has CpuCfsQuota |
-| | CPUShares | has CPUShares |
-| | CPUSet | has CPUShares |
-| | IPv4Forwarding | has IPv4Forwarding |
-| | BridgeNfIptables | has BridgeNfIptables |
-| | BridgeNfIp6tables | has BridgeNfIp6tables |
-| | Debug | Debug on |
-| | NFd | named data networking forwarding daemon |
-| | OomKillDisable | out-of-memory kill disabled |
-| | NGoroutines | number NGoroutines |
-| | SystemTime | docker SystemTime |
-| | LoggingDriver | logging driver e.g. 'json-file' |
-| | CgroupDriver | cgroup driver e.g. 'cgroupfs' |
-| | NEventsListener | number NEventsListeners |
-| | KernelVersion | docker kernel version |
-| | OperatingSystem | docker OS e.g. 'Docker for Mac' |
-| | OSType | OSType e.g. 'linux' |
-| | Architecture | architecture e.g. x86_64 |
-| | NCPU | number of CPUs |
-| | MemTotal | memory total |
-| | DockerRootDir | docker root directory |
-| | HttpProxy | http proxy |
-| | HttpsProxy | https proxy |
-| | NoProxy | NoProxy |
-| | Name | Name |
-| | Labels | array of labels |
-| | ExperimentalBuild | is experimental build |
-| | ServerVersion | server version |
-| | ClusterStore | cluster store |
-| | ClusterAdvertise | cluster advertise |
-| | DefaultRuntime | default runtime e.g. 'runc' |
-| | LiveRestoreEnabled | live store enabled |
-| | Isolation | isolation |
-| | InitBinary | init binary |
-| | ProductLicense | product license |
+| | id | Docker ID |
+| | containers | number of containers |
+| | containersRunning | number of running containers |
+| | containersPaused | number of paused containers |
+| | containersStopped | number of stopped containers |
+| | images | number of images |
+| | driver | driver (e.g. 'devicemapper', 'overlay2') |
+| | memoryLimit | has memory limit |
+| | swapLimit | has swap limit |
+| | kernelMemory | has kernal memory |
+| | cpuCfsPeriod | has CpuCfsPeriod |
+| | cpuCfsQuota | has CpuCfsQuota |
+| | cpuShares | has CPUShares |
+| | cpuSet | has CPUShares |
+| | ipv4Forwarding | has IPv4Forwarding |
+| | bridgeNfIptables | has BridgeNfIptables |
+| | bridgeNfIp6tables | has BridgeNfIp6tables |
+| | debug | Debug on |
+| | nfd | named data networking forwarding daemon |
+| | oomKillDisable | out-of-memory kill disabled |
+| | ngoroutines | number NGoroutines |
+| | systemTime | docker SystemTime |
+| | loggingDriver | logging driver e.g. 'json-file' |
+| | cgroupDriver | cgroup driver e.g. 'cgroupfs' |
+| | nEventsListener | number NEventsListeners |
+| | kernelVersion | docker kernel version |
+| | operatingSystem | docker OS e.g. 'Docker for Mac' |
+| | osType | OSType e.g. 'linux' |
+| | architecture | architecture e.g. x86_64 |
+| | ncpu | number of CPUs |
+| | memTotal | memory total |
+| | dockerRootDir | docker root directory |
+| | httpProxy | http proxy |
+| | httpsProxy | https proxy |
+| | noProxy | NoProxy |
+| | name | Name |
+| | labels | array of labels |
+| | experimentalBuild | is experimental build |
+| | serverVersion | server version |
+| | clusterStore | cluster store |
+| | clusterAdvertise | cluster advertise |
+| | defaultRuntime | default runtime e.g. 'runc' |
+| | liveRestoreEnabled | live store enabled |
+| | isolation | isolation |
+| | initBinary | init binary |
+| | productLicense | product license |
 | si.dockerContainers(all, cb) | [{...}] | returns array of active/all docker containers |
 | | [0].id | ID of container |
 | | [0].name | name of container |
@@ -239,14 +239,14 @@ async function dockerContainerData() {
 }
 ```
 
-
 ## Version history
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
-| 1.4.1          | 2020-05-30     | added typescript definitions, updated docs |
+| 1.4.2          | 2020-10-16     | `dockerContainers()` resolved hanging issue |
+| 1.4.1          | 2019-05-31     | `dockerInfo()` changed property naming style |
 | 1.4.0          | 2019-05-30     | added typescript definitions, updated docs |
-| 1.3.0          | 2019-05-29     | added `dockerInfo()`, `dockerContainers()` added  added started, finished time, restartCount |
+| 1.3.0          | 2019-05-29     | added `dockerInfo()`, `dockerContainers()`<br>added started, finished time, restartCount |
 | 1.2.8          | 2018-12-03     | updated package.json (files) |
 | 1.2.7          | 2018-12-03     | updated docs |
 | 1.2.6          | 2018-11-21     | updated docs |
@@ -290,7 +290,7 @@ All other trademarks are the property of their respective owners.
 
 >The [`MIT`][license-url] License (MIT)
 >
->Copyright &copy; 2019 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
+>Copyright &copy; 2020 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal

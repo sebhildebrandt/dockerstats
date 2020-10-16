@@ -244,6 +244,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.4.1          | 2020-05-30     | added typescript definitions, updated docs |
 | 1.4.0          | 2019-05-30     | added typescript definitions, updated docs |
 | 1.3.0          | 2019-05-29     | added `dockerInfo()`, `dockerContainers()` added  added started, finished time, restartCount |
 | 1.2.8          | 2018-12-03     | updated package.json (files) |

@@ -243,6 +243,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.4.3          | 2020-12-03     | `typescript` definitions fix |
 | 1.4.2          | 2020-10-16     | `dockerContainers()` resolved hanging issue |
 | 1.4.1          | 2019-05-31     | `dockerInfo()` changed property naming style |
 | 1.4.0          | 2019-05-30     | added typescript definitions, updated docs |
@@ -262,7 +263,6 @@ async function dockerContainerData() {
 ## Comments
 
 If you have ideas or comments, please do not hesitate to contact me.
-
 
 Happy monitoring!
 

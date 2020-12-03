@@ -104,9 +104,9 @@ export namespace dockerstats {
   }
 }
 
-export function dockerInfo(cb?: (data: Systeminformation.DockerInfoData[]) => any): Promise<Systeminformation.DockerInfoData[]>;
-export function dockerContainers(all?: boolean, cb?: (data: Systeminformation.DockerContainerData[]) => any): Promise<Systeminformation.DockerContainerData[]>;
-export function dockerContainerStats(id?: string, cb?: (data: Systeminformation.DockerContainerStatsData[]) => any): Promise<Systeminformation.DockerContainerStatsData[]>;
+export function dockerInfo(cb?: (data: dockerstats.DockerInfoData[]) => any): Promise<dockerstats.DockerInfoData[]>;
+export function dockerContainers(all?: boolean, cb?: (data: dockerstats.DockerContainerData[]) => any): Promise<dockerstats.DockerContainerData[]>;
+export function dockerContainerStats(id?: string, cb?: (data: dockerstats.DockerContainerStatsData[]) => any): Promise<dockerstats.DockerContainerStatsData[]>;
 export function dockerContainerProcesses(id?: string, cb?: (data: any) => any): Promise<any>;
 export function dockerAll(cb?: (data: any) => any): Promise<any>;
 

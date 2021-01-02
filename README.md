@@ -243,6 +243,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 1.4.4          | 2020-01-02     | Change `tx` to `wx` in `docker_calcNetworkIO` as documented|
 | 1.4.3          | 2020-12-03     | `typescript` definitions fix |
 | 1.4.2          | 2020-10-16     | `dockerContainers()` resolved hanging issue |
 | 1.4.1          | 2019-05-31     | `dockerInfo()` changed property naming style |

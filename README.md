@@ -11,6 +11,20 @@ Simple [Docker][docker-url] stats library for [node.js][nodejs-url]
   [![Caretaker][caretaker-image]][caretaker-url]
   [![MIT license][license-img]][license-url]
 
+## New Version 2
+
+Version 2 just released with several security fixes, improvements and changes.
+### Breaking Changes Version 2
+
+**Be aware**, that the new version 2.x **is NOT fully backward compatible** to version 1.x ...
+
+We had to make **several interface changes** to keep dockerStats as consistent as possible. We highly recommend to go through the complete list and adapt your own code to be again compatible to the new version 2.
+
+| Function        | Old                | New (V5)           | Comments           |
+| --------------- | ------------------ | ------------------ | ------------------ |
+| `dockerContainerStats()` | mem_usage<br>mem_limit<br>mem_percent<br>cpu_percent<br>cpu_stats<br>precpu_stats<br>memory_stats | memUsage<br>memLimit<br>memPercent<br>cpuPercent<br>cpuStats<br>precpuStats<br>memoryStats | pascalCase conformity |
+| `dockerContainerProcesses()` | pid_host | pidHost | pascalCase conformity |
+
 ## Quick Start
 
 Collection of a few functions to retrieve detailed docker statistics. With this package you easily can retrieve
@@ -137,18 +151,18 @@ I also created a full blown system information library (including all docker sta
 | | [0].mounts | array of mounts |
 | si.dockerContainerStats(ids, cb) | [{...}] | statistics for specific containers<br>container IDs: space or comma separated,<br>pass '*' for all containers|
 | | [0].id | Container ID |
-| | [0].mem_usage | memory usage in bytes |
-| | [0].mem_limit | memory limit (max mem) in bytes |
-| | [0].mem_percent | memory usage in percent |
-| | [0].cpu_percent | cpu usage in percent |
+| | [0].memUsage | memory usage in bytes |
+| | [0].memLimit | memory limit (max mem) in bytes |
+| | [0].memPercent | memory usage in percent |
+| | [0].cpuPercent | cpu usage in percent |
 | | [0].pids | number of processes |
 | | [0].netIO.rx | received bytes via network |
 | | [0].netIO.wx | sent bytes via network |
 | | [0].blockIO.r | bytes read from BlockIO |
 | | [0].blockIO.w | bytes written to BlockIO |
-| | [0].cpu_stats | detailed cpu stats |
-| | [0].percpu_stats | detailed per cpu stats |
-| | [0].memory_stats | detailed memory stats |
+| | [0].cpuStats | detailed cpu stats |
+| | [0].percpuStats | detailed per cpu stats |
+| | [0].memoryStats | detailed memory stats |
 | | [0].networks | detailed network stats per interface |
 | si.dockerContainerProcesses(id, cb) | [{...}] | array of processes inside a container |
 | | [0].pid_host | process ID (host) |
@@ -181,10 +195,10 @@ const dockerstats = require('dockerstats');
 dockerstats.dockerContainerStats('ae8a76', function(data) {
 	console.log('Docker Container Stats:');
 	console.log('- ID: ' + data.id);
-	console.log('- Mem usage: ' + data.mem_usage);
-	console.log('- Mem limit: ' + data.mem_limit);
-	console.log('- Mem usage %: ' + data.mem_percent);
-	console.log('- CPU usage %: ' + data.cpu_percent);
+	console.log('- Mem usage: ' + data.memUsage);
+	console.log('- Mem limit: ' + data.memLimit);
+	console.log('- Mem usage %: ' + data.memPercent);
+	console.log('- CPU usage %: ' + data.cpuPercent);
 })
 ```
 
@@ -203,10 +217,10 @@ dockerstats.dockerContainerStats('ae8a76')
   .then(data => {
   	console.log('Docker Container Stats:');
   	console.log('- ID: ' + data.id);
-  	console.log('- Mem usage: ' + data.mem_usage);
-  	console.log('- Mem limit: ' + data.mem_limit);
-  	console.log('- Mem usage %: ' + data.mem_percent);
-  	console.log('- CPU usage %: ' + data.cpu_percent);
+  	console.log('- Mem usage: ' + data.memUsage);
+  	console.log('- Mem limit: ' + data.memLimit);
+  	console.log('- Mem usage %: ' + data.memPercent);
+  	console.log('- CPU usage %: ' + data.cpuPercent);
 	})
 	.catch(error => console.error(error));
 
@@ -228,10 +242,10 @@ async function dockerContainerData() {
         const data = await dockerstats.dockerContainerStats('ae8a76');
         console.log('Docker Container Stats:');
         console.log('- ID: ' + data.id);
-        console.log('- Mem usage: ' + data.mem_usage);
-        console.log('- Mem limit: ' + data.mem_limit);
-        console.log('- Mem usage %: ' + data.mem_percent);
-        console.log('- CPU usage %: ' + data.cpu_percent);
+        console.log('- Mem usage: ' + data.memUsage);
+        console.log('- Mem limit: ' + data.memLimit);
+        console.log('- Mem usage %: ' + data.memPercent);
+        console.log('- CPU usage %: ' + data.cpuPercent);
         console.log('...');
     } catch (e) {
         console.log(e)
@@ -243,6 +257,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 2.0.0          | 2021-02-14     | new version 2.0 with security patches, fixes and several updated |
 | 1.4.4          | 2021-01-02     | `dockerContainerStats` fix `tx` changed to `wx` as documented |
 | 1.4.3          | 2020-12-03     | `typescript` definitions fix |
 | 1.4.2          | 2020-10-16     | `dockerContainers()` resolved hanging issue |

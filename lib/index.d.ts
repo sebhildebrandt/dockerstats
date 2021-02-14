@@ -84,10 +84,10 @@ export namespace dockerstats {
 
   interface DockerContainerStatsData {
     id: string;
-    mem_usage: number;
-    mem_limit: number;
-    mem_percent: number;
-    cpu_percent: number;
+    memUsage: number;
+    memLimit: number;
+    memPercent: number;
+    cpuPercent: number;
     netIO: {
       rx: number;
       wx: number;
@@ -97,9 +97,9 @@ export namespace dockerstats {
       w: number;
     };
     restartCount: number;
-    cpu_stats: any;
-    precpu_stats: any;
-    memory_stats: any,
+    cpuStats: any;
+    precpuStats: any;
+    memoryStats: any,
     networks: any;
   }
 }

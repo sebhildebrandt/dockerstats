@@ -257,6 +257,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 2.0.1          | 2021-02-15     | `dockerContainerStats` fixed ID splitting |
 | 2.0.0          | 2021-02-14     | new version 2.0 with security patches, fixes and several updated |
 | 1.4.4          | 2021-01-02     | `dockerContainerStats` fix `tx` changed to `wx` as documented |
 | 1.4.3          | 2020-12-03     | `typescript` definitions fix |

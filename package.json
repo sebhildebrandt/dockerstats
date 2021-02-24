@@ -12,6 +12,8 @@
   },
   "keywords": [
     "docker",
+    "docker images",
+    "docker containers",
     "docker statistics",
     "docker info"
   ],

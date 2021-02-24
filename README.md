@@ -1,6 +1,6 @@
 # dockerstats
 
-Simple [Docker][docker-url] stats library for [node.js][nodejs-url]
+Simple [Docker][docker-url] info and stats library for [node.js][nodejs-url]
 
   [![NPM Version][npm-image]][npm-url]
   [![NPM Downloads][downloads-image]][downloads-url]
@@ -29,6 +29,7 @@ We had to make **several interface changes** to keep dockerStats as consistent a
 
 Collection of a few functions to retrieve detailed docker statistics. With this package you easily can retrieve
 
+- list of top level/all docker images
 - list of active/all docker containers
 - statistics for a specific container (mem, cpu, network and blockIO stats)
 - information of all processes of a specific active docker container (pids, state, cpu-time, user...)
@@ -134,6 +135,25 @@ I also created a full blown system information library (including all docker sta
 | | isolation | isolation |
 | | initBinary | init binary |
 | | productLicense | product license |
+| si.dockerImages(all, cb) | [{...}] | returns array of top level/all docker images |
+| | [0].id | image ID |
+| | [0].container | container ID |
+| | [0].comment | comment |
+| | [0].os | OS |
+| | [0].architecture | architecture |
+| | [0].parent | parent ID |
+| | [0].dockerVersion | docker version |
+| | [0].size | image size |
+| | [0].sharedSize | shared size |
+| | [0].virtualSize | virtual size |
+| | [0].author | author |
+| | [0].created | created date / time |
+| | [0].containerConfig | container config object |
+| | [0].graphDriver | graph driver object |
+| | [0].repoDigests | repo digests array |
+| | [0].repoTags | repo tags array |
+| | [0].config | config object |
+| | [0].rootFS | root fs object |
 | si.dockerContainers(all, cb) | [{...}] | returns array of active/all docker containers |
 | | [0].id | ID of container |
 | | [0].name | name of container |
@@ -257,6 +277,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 2.1.0          | 2021-02-24     | `dockerImages` added dockerImages to get image data |
 | 2.0.2          | 2021-02-23     | `dockerContainerStats` fixed param * |
 | 2.0.1          | 2021-02-15     | `dockerContainerStats` fixed ID splitting |
 | 2.0.0          | 2021-02-14     | new version 2.0 with security patches, fixes and several updated |

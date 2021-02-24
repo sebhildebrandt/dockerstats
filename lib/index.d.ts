@@ -53,6 +53,27 @@ export namespace dockerstats {
     productLicense: string;
   }
 
+  interface DockerImageData {
+    id: string;
+    container: string;
+    comment: string;
+    os: string;
+    architecture: string;
+    parent: string;
+    dockerVersion: string;
+    size: number;
+    sharedSize: number;
+    virtualSize: number;
+    author: string;
+    created: number;
+    containerConfig: any;
+    graphDriver: any;
+    repoDigests: any;
+    repoTags: any;
+    config: any;
+    rootFS: any;
+  }
+
   interface DockerContainerData {
     id: string;
     name: string;
@@ -105,6 +126,7 @@ export namespace dockerstats {
 }
 
 export function dockerInfo(cb?: (data: dockerstats.DockerInfoData[]) => any): Promise<dockerstats.DockerInfoData[]>;
+export function dockerImages(all?: boolean, cb?: (data: dockerstats.DockerImageData[]) => any): Promise<dockerstats.DockerImageData[]>;
 export function dockerContainers(all?: boolean, cb?: (data: dockerstats.DockerContainerData[]) => any): Promise<dockerstats.DockerContainerData[]>;
 export function dockerContainerStats(id?: string, cb?: (data: dockerstats.DockerContainerStatsData[]) => any): Promise<dockerstats.DockerContainerStatsData[]>;
 export function dockerContainerProcesses(id?: string, cb?: (data: any) => any): Promise<any>;

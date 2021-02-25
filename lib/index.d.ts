@@ -123,6 +123,15 @@ export namespace dockerstats {
     memoryStats: any,
     networks: any;
   }
+  interface DockerVolumeData {
+    name: string;
+    driver: string;
+    labels: any;
+    mountpoint: string;
+    options: any;
+    scope: string;
+    created: number;
+  }
 }
 
 export function dockerInfo(cb?: (data: dockerstats.DockerInfoData[]) => any): Promise<dockerstats.DockerInfoData[]>;
@@ -130,5 +139,6 @@ export function dockerImages(all?: boolean, cb?: (data: dockerstats.DockerImageD
 export function dockerContainers(all?: boolean, cb?: (data: dockerstats.DockerContainerData[]) => any): Promise<dockerstats.DockerContainerData[]>;
 export function dockerContainerStats(id?: string, cb?: (data: dockerstats.DockerContainerStatsData[]) => any): Promise<dockerstats.DockerContainerStatsData[]>;
 export function dockerContainerProcesses(id?: string, cb?: (data: any) => any): Promise<any>;
+export function dockerVolumes(cb?: (data: dockerstats.DockerVolumeData[]) => any): Promise<dockerstats.DockerVolumeData[]>;
 export function dockerAll(cb?: (data: any) => any): Promise<any>;
 

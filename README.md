@@ -33,6 +33,7 @@ Collection of a few functions to retrieve detailed docker statistics. With this 
 - list of active/all docker containers
 - statistics for a specific container (mem, cpu, network and blockIO stats)
 - information of all processes of a specific active docker container (pids, state, cpu-time, user...)
+- list all docker volumes
 
 Super simple to use with callback functions or promise style.
 
@@ -199,6 +200,14 @@ I also created a full blown system information library (including all docker sta
 | | [0].rss | resident set size |
 | | [0].vsz | virtual size in Kbytes |
 | | [0].command | command and arguments |
+| si.dockerVolumes(cb) | [{...}] | returns array of all docker volumes |
+| | [0].name  | volume name |
+| | [0].driver  | driver |
+| | [0].labels  | labels object |
+| | [0].mountpoint  | mountpoint |
+| | [0].options  | options |
+| | [0].scope  | scope |
+| | [0].created  | created at |
 | si.dockerAll(cb) | {...} | list of all containers including their stats<br>and processes in one single array |
 
 ### cb: Asynchronous Function Calls (callback)
@@ -277,7 +286,8 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
-| 2.1.0          | 2021-02-24     | `dockerImages` added dockerImages to get image data |
+| 2.2.0          | 2021-02-25     | `dockerVolumes` added dockerVolumes() - get volume data |
+| 2.1.0          | 2021-02-24     | `dockerImages` added dockerImages() - get image data |
 | 2.0.2          | 2021-02-23     | `dockerContainerStats` fixed param * |
 | 2.0.1          | 2021-02-15     | `dockerContainerStats` fixed ID splitting |
 | 2.0.0          | 2021-02-14     | new version 2.0 with security patches, fixes and several updated |

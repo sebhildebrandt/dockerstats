@@ -286,6 +286,7 @@ async function dockerContainerData() {
 
 | Version        | Date           | Comment  |
 | -------------- | -------------- | -------- |
+| 2.3.0          | 2021-05-04     | `dockerImagesInspect()`, `dockerContainerInspect()`, `dockerContainerProcesses()` security updates |
 | 2.2.0          | 2021-02-25     | `dockerVolumes` added dockerVolumes() - get volume data |
 | 2.1.0          | 2021-02-24     | `dockerImages` added dockerImages() - get image data |
 | 2.0.2          | 2021-02-23     | `dockerContainerStats` fixed param * |

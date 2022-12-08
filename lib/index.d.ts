@@ -2,7 +2,7 @@
 // Project: https://github.com/sebhildebrandt/dockerstats
 // Definitions by: sebhildebrandt <https://github.com/sebhildebrandt>
 
-export namespace dockerstats {
+export namespace Dockerstats {
 
   interface DockerInfoData {
     id: string;
@@ -23,7 +23,7 @@ export namespace dockerstats {
     bridgeNfIptables: boolean;
     bridgeNfIp6tables: boolean;
     debug: boolean;
-    mfd: number;
+    nfd: number;
     oomKillDisable: boolean;
     ngoroutines: number;
     systemTime: string;
@@ -109,6 +109,7 @@ export namespace dockerstats {
     memLimit: number;
     memPercent: number;
     cpuPercent: number;
+    pids: number;
     netIO: {
       rx: number;
       wx: number;
@@ -120,9 +121,27 @@ export namespace dockerstats {
     restartCount: number;
     cpuStats: any;
     precpuStats: any;
-    memoryStats: any,
+    memoryStats: any;
     networks: any;
   }
+
+  interface DockerContainerProcessData {
+    pidHost: string;
+    ppid: string;
+    pgid: string;
+    user: string;
+    ruser: string;
+    group: string;
+    rgroup: string;
+    stat: string;
+    time: string;
+    elapsed: string;
+    nice: string;
+    rss: string;
+    vsz: string;
+    command: string;
+  }
+
   interface DockerVolumeData {
     name: string;
     driver: string;
@@ -134,11 +153,10 @@ export namespace dockerstats {
   }
 }
 
-export function dockerInfo(cb?: (data: dockerstats.DockerInfoData[]) => any): Promise<dockerstats.DockerInfoData[]>;
-export function dockerImages(all?: boolean, cb?: (data: dockerstats.DockerImageData[]) => any): Promise<dockerstats.DockerImageData[]>;
-export function dockerContainers(all?: boolean, cb?: (data: dockerstats.DockerContainerData[]) => any): Promise<dockerstats.DockerContainerData[]>;
-export function dockerContainerStats(id?: string, cb?: (data: dockerstats.DockerContainerStatsData[]) => any): Promise<dockerstats.DockerContainerStatsData[]>;
-export function dockerContainerProcesses(id?: string, cb?: (data: any) => any): Promise<any>;
-export function dockerVolumes(cb?: (data: dockerstats.DockerVolumeData[]) => any): Promise<dockerstats.DockerVolumeData[]>;
+export function dockerInfo(cb?: (data: Dockerstats.DockerInfoData) => any): Promise<Dockerstats.DockerInfoData>;
+export function dockerImages(all?: boolean, cb?: (data: Dockerstats.DockerImageData[]) => any): Promise<Dockerstats.DockerImageData[]>;
+export function dockerContainers(all?: boolean, cb?: (data: Dockerstats.DockerContainerData[]) => any): Promise<Dockerstats.DockerContainerData[]>;
+export function dockerContainerStats(id?: string, cb?: (data: Dockerstats.DockerContainerStatsData[]) => any): Promise<Dockerstats.DockerContainerStatsData[]>;
+export function dockerContainerProcesses(id?: string, cb?: (data: any) => any): Promise<Dockerstats.DockerContainerProcessData[]>;
+export function dockerVolumes(cb?: (data: Dockerstats.DockerVolumeData[]) => any): Promise<Dockerstats.DockerVolumeData[]>;
 export function dockerAll(cb?: (data: any) => any): Promise<any>;
-

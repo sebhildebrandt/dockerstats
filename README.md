@@ -283,6 +283,7 @@ async function dockerContainerData() {
 
 | Version | Date       | Comment                                                                                            |
 | ------- | ---------- | -------------------------------------------------------------------------------------------------- |
+| 2.4.2   | 2023-06-22 | fix `dockerContainerStats()` fix parsing all ‚                                                     |
 | 2.4.1   | 2022-12-18 | fix `util.js` after code restructuring                                                             |
 | 2.4.0   | 2022-12-08 | code restructuring, `dockerContainerStats()` improved parsing, TS typings update                   |
 | 2.3.0   | 2021-05-04 | `dockerImagesInspect()`, `dockerContainerInspect()`, `dockerContainerProcesses()` security updates |

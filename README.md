@@ -283,7 +283,8 @@ async function dockerContainerData() {
 
 | Version | Date       | Comment                                                                                            |
 | ------- | ---------- | -------------------------------------------------------------------------------------------------- |
-| 2.4.2   | 2023-06-22 | fix `dockerContainerStats()` fix parsing all ‚                                                     |
+| 2.4.3   | 2026-01-10 | code refactoring, cleanup                                                                          |
+| 2.4.2   | 2023-06-22 | fix `dockerContainerStats()` fix parsing all                                                       |
 | 2.4.1   | 2022-12-18 | fix `util.js` after code restructuring                                                             |
 | 2.4.0   | 2022-12-08 | code restructuring, `dockerContainerStats()` improved parsing, TS typings update                   |
 | 2.3.0   | 2021-05-04 | `dockerImagesInspect()`, `dockerContainerInspect()`, `dockerContainerProcesses()` security updates |
@@ -340,7 +341,7 @@ All other trademarks are the property of their respective owners.
 
 >The [`MIT`][license-url] License (MIT)
 >
->Copyright &copy; 2022 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
+>Copyright &copy; 2026 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal

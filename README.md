@@ -165,6 +165,7 @@ I also created a full blown system information library (including all docker sta
 |                                     | [0].startedAt       | creation date time string                                                                                     |
 |                                     | [0].finishedAt      | creation date time string                                                                                     |
 |                                     | [0].state           | created, running, exited                                                                                      |
+|                                     | [0].labels          | object of labels (key-value pairs)                                                                            |
 |                                     | [0].ports           | array of ports                                                                                                |
 |                                     | [0].mounts          | array of mounts                                                                                               |
 | si.dockerContainerStats(ids, cb)    | [{...}]             | statistics for specific containers<br>container IDs: space or comma separated,<br>pass '*' for all containers |

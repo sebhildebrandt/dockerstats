@@ -75,6 +75,12 @@ function containerInspectResponse() {
 		RestartCount: 3,
 		Platform: "linux",
 		Driver: "overlay2",
+		Config: {
+			Labels: {
+				"org.label-schema.license": "MIT",
+				"org.label-schema.schema-version": "1.0",
+			},
+		},
 		State: {
 			StartedAt: "2024-01-01T00:00:10Z",
 			FinishedAt: "0001-01-01T00:00:00Z",
@@ -227,6 +233,10 @@ test("dockerContainers maps list and inspect data", async () => {
 	assert.strictEqual(c.restartCount, 3);
 	assert.strictEqual(c.platform, "linux");
 	assert.strictEqual(c.driver, "overlay2");
+	assert.deepStrictEqual(c.labels, {
+		"org.label-schema.license": "MIT",
+		"org.label-schema.schema-version": "1.0",
+	});
 	assert.deepStrictEqual(c.ports, [
 		{ PrivatePort: 80, PublicPort: 8080, Type: "tcp" },
 	]);

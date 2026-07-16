@@ -90,6 +90,7 @@ export namespace Dockerstats {
     restartCount: number;
     platform: string;
     driver: string;
+    labels: { [key: string]: string };
     ports: DockerContainerPortData[];
     mounts: DockerContainerMountData[];
   }

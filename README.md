@@ -2,15 +2,16 @@
 
 Simple [Docker][docker-url] info and stats library for [node.js][nodejs-url]
 
-  [![NPM Version][npm-image]][npm-url]
-  [![NPM Downloads][downloads-image]][downloads-url]
-  [![Git Issues][issues-img]][issues-url]
-  [![Caretaker][caretaker-image]][caretaker-url]
-  [![MIT license][license-img]][license-url]
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![Git Issues][issues-img]][issues-url]
+[![Caretaker][caretaker-image]][caretaker-url]
+[![MIT license][license-img]][license-url]
 
 ## New Version 2
 
 Version 2 just released with several security fixes, improvements and changes.
+
 ### Breaking Changes Version 2
 
 **Be aware**, that the new version 2.x **is NOT fully backward compatible** to version 1.x ...
@@ -45,29 +46,29 @@ $ npm install dockerstats --save
 All functions are implemented as asynchronous functions. Here a small example how to use them:
 
 ```js
-const dockerstats = require('dockerstats');
+const dockerstats = require("dockerstats");
 
 // callback style
-dockerstats.dockerContainers(function(data) {
-	console.log('Docker Containers');
-	console.log(data);
-})
+dockerstats.dockerContainers(function (data) {
+  console.log("Docker Containers");
+  console.log(data);
+});
 
 // promises style
-dockerstats.dockerContainers()
-	.then(data => console.log(data))
-	.catch(error => console.error(error));
+dockerstats
+  .dockerContainers()
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
 
 // full async / await example (node >= 7.6)
 async function dockerContainers() {
   try {
     const data = await dockerstats.dockerContainers();
-    console.log(data)
+    console.log(data);
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
 }
-
 ```
 
 ## Core concept
@@ -217,16 +218,16 @@ Remember: all functions are implemented as asynchronous functions! There are now
 ```js
 // assuming you have a container with ID 'ae8a76'
 
-const dockerstats = require('dockerstats');
+const dockerstats = require("dockerstats");
 
-dockerstats.dockerContainerStats('ae8a76', function(data) {
-	console.log('Docker Container Stats:');
-	console.log('- ID: ' + data.id);
-	console.log('- Mem usage: ' + data.memUsage);
-	console.log('- Mem limit: ' + data.memLimit);
-	console.log('- Mem usage %: ' + data.memPercent);
-	console.log('- CPU usage %: ' + data.cpuPercent);
-})
+dockerstats.dockerContainerStats("ae8a76", function (data) {
+  console.log("Docker Container Stats:");
+  console.log("- ID: " + data.id);
+  console.log("- Mem usage: " + data.memUsage);
+  console.log("- Mem limit: " + data.memLimit);
+  console.log("- Mem usage %: " + data.memPercent);
+  console.log("- CPU usage %: " + data.cpuPercent);
+});
 ```
 
 ### Promises
@@ -238,19 +239,19 @@ When omitting callback parameter (cb), then you can use all function in a promis
 ```js
 // assuming you have a container with ID 'ae8a76'
 
-const dockerstats = require('dockerstats');
+const dockerstats = require("dockerstats");
 
-dockerstats.dockerContainerStats('ae8a76')
-  .then(data => {
-  	console.log('Docker Container Stats:');
-  	console.log('- ID: ' + data.id);
-  	console.log('- Mem usage: ' + data.memUsage);
-  	console.log('- Mem limit: ' + data.memLimit);
-  	console.log('- Mem usage %: ' + data.memPercent);
-  	console.log('- CPU usage %: ' + data.cpuPercent);
-	})
-	.catch(error => console.error(error));
-
+dockerstats
+  .dockerContainerStats("ae8a76")
+  .then((data) => {
+    console.log("Docker Container Stats:");
+    console.log("- ID: " + data.id);
+    console.log("- Mem usage: " + data.memUsage);
+    console.log("- Mem limit: " + data.memLimit);
+    console.log("- Mem usage %: " + data.memPercent);
+    console.log("- CPU usage %: " + data.cpuPercent);
+  })
+  .catch((error) => console.error(error));
 ```
 
 ### Async / Await
@@ -262,21 +263,21 @@ Since node v7.6 you can also use the `async` / `await` pattern. The above exampl
 ```js
 // assuming you have a container with ID 'ae8a76'
 
-const dockerstats = require('dockerstats');
+const dockerstats = require("dockerstats");
 
 async function dockerContainerData() {
-    try {
-        const data = await dockerstats.dockerContainerStats('ae8a76');
-        console.log('Docker Container Stats:');
-        console.log('- ID: ' + data.id);
-        console.log('- Mem usage: ' + data.memUsage);
-        console.log('- Mem limit: ' + data.memLimit);
-        console.log('- Mem usage %: ' + data.memPercent);
-        console.log('- CPU usage %: ' + data.cpuPercent);
-        console.log('...');
-    } catch (e) {
-        console.log(e)
-    }
+  try {
+    const data = await dockerstats.dockerContainerStats("ae8a76");
+    console.log("Docker Container Stats:");
+    console.log("- ID: " + data.id);
+    console.log("- Mem usage: " + data.memUsage);
+    console.log("- Mem limit: " + data.memLimit);
+    console.log("- Mem usage %: " + data.memPercent);
+    console.log("- CPU usage %: " + data.cpuPercent);
+    console.log("...");
+  } catch (e) {
+    console.log(e);
+  }
 }
 ```
 
@@ -284,6 +285,9 @@ async function dockerContainerData() {
 
 | Version | Date       | Comment                                                                                            |
 | ------- | ---------- | -------------------------------------------------------------------------------------------------- |
+| 2.5.0   | 2026-07-16 | `dockerContainers()` added labels                                                                  |
+| 2.4.5   | 2026-07-16 | added tests                                                                                        |
+| 2.4.4   | 2026-07-16 | code refactoring, cleanup                                                                          |
 | 2.4.3   | 2026-01-10 | code refactoring, cleanup                                                                          |
 | 2.4.2   | 2023-06-22 | fix `dockerContainerStats()` fix parsing all                                                       |
 | 2.4.1   | 2022-12-18 | fix `util.js` after code restructuring                                                             |
@@ -340,50 +344,45 @@ All other trademarks are the property of their respective owners.
 
 ## License [![MIT license][license-img]][license-url]
 
->The [`MIT`][license-url] License (MIT)
+> The [`MIT`][license-url] License (MIT)
 >
->Copyright &copy; 2026 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
+> Copyright &copy; 2026 Sebastian Hildebrandt, [+innovations](http://www.plus-innovations.com).
 >
->Permission is hereby granted, free of charge, to any person obtaining a copy
->of this software and associated documentation files (the "Software"), to deal
->in the Software without restriction, including without limitation the rights
->to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
->copies of the Software, and to permit persons to whom the Software is
->furnished to do so, subject to the following conditions:
+> Permission is hereby granted, free of charge, to any person obtaining a copy
+> of this software and associated documentation files (the "Software"), to deal
+> in the Software without restriction, including without limitation the rights
+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+> copies of the Software, and to permit persons to whom the Software is
+> furnished to do so, subject to the following conditions:
 >
->The above copyright notice and this permission notice shall be included in
->all copies or substantial portions of the Software.
+> The above copyright notice and this permission notice shall be included in
+> all copies or substantial portions of the Software.
 >
->THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
->IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
->FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
->AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
->LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
->OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
->THE SOFTWARE.
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+> THE SOFTWARE.
 >
->Further details see [LICENSE](LICENSE) file.
-
+> Further details see [LICENSE](LICENSE) file.
 
 [npm-image]: https://img.shields.io/npm/v/dockerstats.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/dockerstats
 [downloads-image]: https://img.shields.io/npm/dm/dockerstats.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/dockerstats
-
 [license-url]: https://github.com/sebhildebrandt/dockerstats/blob/master/LICENSE
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [npmjs-license]: https://img.shields.io/npm/l/dockerstats.svg?style=flat-square
 [changelog-url]: https://github.com/sebhildebrandt/dockerstats/blob/master/CHANGELOG.md
 [caretaker-url]: https://github.com/sebhildebrandt
 [caretaker-image]: https://img.shields.io/badge/caretaker-sebhildebrandt-blue.svg?style=flat-square
-
 [nodejs-url]: https://nodejs.org/en/
 [docker-url]: https://www.docker.com/
-
 [issues-img]: https://img.shields.io/github/issues/sebhildebrandt/dockerstats.svg?style=flat-square
 [issues-url]: https://github.com/sebhildebrandt/dockerstats/issues
 [closed-issues-img]: https://img.shields.io/github/issues-closed-raw/sebhildebrandt/dockerstats.svg?style=flat-square
 [closed-issues-url]: https://github.com/sebhildebrandt/dockerstats/issues?q=is%3Aissue+is%3Aclosed
-
 [systeminformation-npm-url]: https://npmjs.org/package/systeminformation
 [systeminformation-github-url]: https://github.com/sebhildebrandt/systeminformation

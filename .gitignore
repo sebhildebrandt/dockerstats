@@ -22,7 +22,7 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# MacOS 
+# MacOS
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -79,3 +79,23 @@ nb-configuration.xml
 .bower-*/
 bower_components/
 .lock-wscript
+
+# AI assistants
+.claude/
+.cursor/
+.copilot/
+.opencode/
+.gemini/
+
+# AI prompt/rule files
+**/.rules/
+**/.instructions/
+**/.prompts/
+.github/copilot-instructions.md
+
+# Common AI markdown/config files
+**/AGENTS.md
+**/CLAUDE.md
+**/GEMINI.md
+**/COPILOT.md
+**/AI.md

@@ -68,8 +68,8 @@ export namespace Dockerstats {
     created: number;
     containerConfig: any;
     graphDriver: any;
-    repoDigests: any;
-    repoTags: any;
+    repoDigests: string[];
+    repoTags: string[];
     config: any;
     rootFS: any;
   }
@@ -90,8 +90,15 @@ export namespace Dockerstats {
     restartCount: number;
     platform: string;
     driver: string;
-    ports: number[];
+    ports: DockerContainerPortData[];
     mounts: DockerContainerMountData[];
+  }
+
+  interface DockerContainerPortData {
+    IP?: string;
+    PrivatePort?: number;
+    PublicPort?: number;
+    Type?: string;
   }
 
   interface DockerContainerMountData {

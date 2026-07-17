@@ -18,7 +18,7 @@ Version 2 just released with several security fixes, improvements and changes.
 
 We had to make **several interface changes** to keep dockerStats as consistent as possible. We highly recommend to go through the complete list and adapt your own code to be again compatible to the new version 2.
 
-| Function                     | Old                                                                                               | New (V5)                                                                                   | Comments              |
+| Function                     | Old                                                                                               | New (V2)                                                                                   | Comments              |
 | ---------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------- |
 | `dockerContainerStats()`     | mem_usage<br>mem_limit<br>mem_percent<br>cpu_percent<br>cpu_stats<br>precpu_stats<br>memory_stats | memUsage<br>memLimit<br>memPercent<br>cpuPercent<br>cpuStats<br>precpuStats<br>memoryStats | pascalCase conformity |
 | `dockerContainerProcesses()` | pid_host                                                                                          | pidHost                                                                                    | pascalCase conformity |

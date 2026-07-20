@@ -165,6 +165,7 @@ I also created a full blown system information library (including all docker sta
 |                                     | [0].createdAt       | creation date time string                                                                                     |
 |                                     | [0].startedAt       | creation date time string                                                                                     |
 |                                     | [0].finishedAt      | creation date time string                                                                                     |
+|                                     | [0].status          | healthy, starting, unhealthy                                                                                  |
 |                                     | [0].state           | created, running, exited                                                                                      |
 |                                     | [0].labels          | object of labels (key-value pairs)                                                                            |
 |                                     | [0].ports           | array of ports                                                                                                |
@@ -285,6 +286,7 @@ async function dockerContainerData() {
 
 | Version | Date       | Comment                                                                                            |
 | ------- | ---------- | -------------------------------------------------------------------------------------------------- |
+| 2.6.0   | 2026-07-20 | `dockerContainers()` added status                                                                  |
 | 2.5.0   | 2026-07-16 | `dockerContainers()` added labels                                                                  |
 | 2.4.5   | 2026-07-16 | added tests                                                                                        |
 | 2.4.4   | 2026-07-16 | code refactoring, cleanup                                                                          |
